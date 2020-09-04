@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Application.Lobby</AssemblyName>
+    <RootNamespace>Application.Lobby</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Compile Remove="Entities\Handler\Agent\**" />
+    <Compile Remove="Entities\Handler\User\Data\**" />
+    <Compile Remove="Entities\Handler\User\Statistics\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Entities\Handler\Agent\**" />
+    <EmbeddedResource Remove="Entities\Handler\User\Data\**" />
+    <EmbeddedResource Remove="Entities\Handler\User\Statistics\**" />
+    <None Remove="Data\**" />
+    <None Remove="Entities\Handler\Agent\**" />
+    <None Remove="Entities\Handler\User\Data\**" />
+    <None Remove="Entities\Handler\User\Statistics\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Config.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basis\Data\Data.csproj" />
+    <ProjectReference Include="..\..\Basis\Metadata\Metadata.csproj" />
+    <ProjectReference Include="..\..\Engine\Database\Database.csproj" />
+    <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Synchronize\Synchronize.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Handler\Match\Game\" />
+    <Folder Include="Entities\Handler\User\Lobby\" />
+    <Folder Include="Entities\Handler\User\Authentication\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Applicaiotn.Common</AssemblyName>
+    <RootNamespace>Application.Common</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+  </ItemGroup>
+
+</Project>

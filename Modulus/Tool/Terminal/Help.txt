@@ -1,0 +1,24 @@
+﻿----------------------------------------------------------------
+1. 데디케이트 서버 업로드
+  - upload [버전명] [빌드된 데이케이스 서버의 경로]
+	* 1. upload C:/HAL/Packages/WindowsServer
+    * 2. upload 19.01.01.00 C:/HAL/Packages/WindowsServer
+    * 여기서 마지막 폴더명 WindowsServer까지 또는 그이상 써야함. 매우중요!
+    * 압축에서 업로드까지 자동으로 하므로 압축하지 말것.
+	* 버전을 적지 않을경우 자동으로 버전명이 생성됨.
+
+2. 업로드한 데디케이트 서버 실행.
+  - switch Game001
+  - run dedicate 19.01.01.00
+  - run dedicate
+  * 버전을 적지 않을경우 가장 마지막 버전이 실행됨.
+
+3. 강제 매칭.
+  - switch Match
+  - force match [ ffa | trio ]
+    * 데디케이트 업로드가 완료되고 실행까지 1분정도 걸리므로
+    * force match 는 1분정도 뒤에 매칭 될 수 있음.
+
+4. 현재 열려있는 방 정보 확인.
+  - switch Match
+  - rooms [ ffa | trio | tag | all ]

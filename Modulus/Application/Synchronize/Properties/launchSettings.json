@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Synchronize": {
+      "commandName": "Project",
+      "commandLineArgs": "Synchronize Mantisco Azure DEV"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Tool.Terminal</AssemblyName>
+    <RootNamespace>Tool.Terminal</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Api\Commands\Agent\**" />
+    <EmbeddedResource Remove="Api\Commands\Agent\**" />
+    <None Remove="Api\Commands\Agent\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Help.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Help.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.101.59" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB" Version="2.6.0" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.6.0" />
+  </ItemGroup>
+
+</Project>

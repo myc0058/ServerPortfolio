@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Schema.Protobuf.Message.Lobby;
+
+import "Enums.proto";
+
+message Logout
+{
+	Enums.ResponseCode ReponseCode = 101;
+	int64 Idx = 102;
+}

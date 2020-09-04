@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Application.Synchronize</AssemblyName>
+    <RootNamespace>Application.Synchronize</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basis\Data\Data.csproj" />
+    <ProjectReference Include="..\..\Basis\Metadata\Metadata.csproj" />
+    <ProjectReference Include="..\..\Engine\Database\Database.csproj" />
+    <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+  </ItemGroup>
+
+</Project>

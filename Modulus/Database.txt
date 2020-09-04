@@ -1,0 +1,9 @@
+var query = new dbms.Driver.Query();
+query.OverrideQuery = async () => {...}
+
+별도의 스레드에서 쿼리를 실행한다.
+
+
+query.ExecuteAsync(() => {...});
+
+파라미터로 넘기는 콜백은 해당 현재 진행중인 Task에 PostMessage()한다.

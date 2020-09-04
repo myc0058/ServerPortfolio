@@ -1,0 +1,17 @@
+syntax = "proto3";
+package Schema.Protobuf.Message.Enums;
+
+enum ResponseCode {
+	
+	ResponseCode_NONE = 0;
+	ResponseCode_SUCCESS = 1;
+	ResponseCode_FAIL = 2;
+	ResponseCode_YOU_NEED_ROOM = 3;
+}
+
+enum ClientPlatform {
+	CLIENTPLATFORM_NONE = 0;
+	CLIENTPLATFORM_EDITOR = 1;
+	CLIENTPLATFORM_GOOGLE = 2;
+	CLIENTPLATFORM_APPLE = 3;
+}

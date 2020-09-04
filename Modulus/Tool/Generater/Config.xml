@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root name="Generater">
+  <Protobuf Root="D:/ServerFramework" Protoc="D:/ServerFramework/Modulus/ThirdParty/protoc.exe">
+    <Input Path="Modulus/Schema/Protobuf/Source"></Input>
+    <Compile>
+      <Output Type="CSharp" Path="Modulus/Schema/Protobuf/CSharp" UnitTest="Modulus/Application/StandAlone">
+      </Output>
+      <Output Type="Unity" Path="Unity/Assets/Scripts/Network">
+      </Output>
+    </Compile>
+  </Protobuf>
+</root>

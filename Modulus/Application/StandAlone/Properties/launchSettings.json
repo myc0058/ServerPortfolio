@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "StandAlone": {
+      "commandName": "Project",
+      "commandLineArgs": "provider=Mantisco publish=KR region=KR agents=Lobby,Game,Synchronize,Match "
+    }
+  }
+}

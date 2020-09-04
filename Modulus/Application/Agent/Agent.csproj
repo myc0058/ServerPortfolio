@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Application.Agent</AssemblyName>
+    <RootNamespace>Application.Agent</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Api\Command\Admin\**" />
+    <EmbeddedResource Remove="Api\Command\Admin\**" />
+    <None Remove="Api\Command\Admin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Config.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basis\Metadata\Metadata.csproj" />
+    <ProjectReference Include="..\..\Engine\Database\Database.csproj" />
+    <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Entities\Handler\Admin\Administrator\" />
+    <Folder Include="Entities\Handler\Client\Administrator\" />
+    <Folder Include="Entities\Handler\Process\Administrator\" />
+    <Folder Include="Entities\Handler\Server\Administrator\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Scheduler\" />
+  </ItemGroup>
+
+</Project>

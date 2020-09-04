@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package Schema.Protobuf.Message.Game;
+
+import "Enums.proto";
+import "Common.proto";
+
+message BeginMatching
+{
+	int32 MMR = 1;
+
+	Enums.ResponseCode ResponseCode = 101;
+}
+
+message CancelMatching
+{
+	Enums.ResponseCode ResponseCode = 101;
+}
+
+message EndMatching
+{
+	Enums.ResponseCode ResponseCode = 101;
+	
+	Common.MatchingInfo MatchingInfo = 102;
+}
+
+message EnterRoom
+{
+	Enums.ResponseCode ResponseCode = 101;
+
+	int64 GameServerId = 102;
+	int64 RoomId = 103;
+	int64 Idx = 104;
+	repeated Common.Character Characters = 105;
+}
+
+message LeaveRoom
+{
+	Enums.ResponseCode ResponseCode = 101;
+	int64 RoomId = 102;
+	int64 Idx = 103;
+}
+
+message EnterCharacter
+{
+	int64 RoomId = 101;
+	Common.Character Character = 102;
+}
+
+message LeaveCharacter
+{
+	int64 RoomId = 101;
+	Common.Character Character = 102;
+}
+
+message Damage
+{
+	int64 Idx = 1;
+	int64 OtherIdx = 2;
+	int64 Power = 3;
+}
+
+message Die
+{
+	int64 Idx = 101;
+}
+
+message MyGameResult
+{
+	Enums.ResponseCode ResponseCode = 101;
+	Common.GameResult Data = 102;
+}
+
+message FinishGame
+{
+	Enums.ResponseCode ResponseCode = 101;
+	repeated Common.GameResult Datas = 102;
+}
+
+message Chat
+{
+	int64 Idx = 1;
+	string Id = 2;
+	string msg = 3;
+	
+	Enums.ResponseCode ResponseCode = 101;
+}
+
+message SyncTime
+{
+	int64 SendLocalTime = 1;
+	int64 RecvLocalTime = 2;
+	int64 RemoteTime = 101;
+}
+
+message Move
+{
+	int64 Idx = 1;
+	Common.Vector3 Position = 2;
+	Common.Vector3 Direction = 3;
+	float Speed = 4;
+	int64 Ticks = 5;
+}
+
+message RTT
+{
+	int64 Idx = 1;
+	int64 Seq = 2;
+}
+
+message World
+{
+	repeated Common.Character Characters = 101;
+	Common.PlaneMap Map = 102;
+	int64 Seq = 103;
+	int64 DeltaTicks = 104;
+}
+

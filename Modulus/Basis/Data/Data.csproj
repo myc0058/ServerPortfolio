@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Basis.Data</AssemblyName>
+    <RootNamespace>Basis.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+    <ProjectReference Include="..\Metadata\Metadata.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+create one LayerUpdate() thread
+
+	OnUpdate() - Network.Api.Layer.OnUpdate() - OnDisconnectCallbacks Call
+		그런데 OnDisconnectCallbacks을 사용하는곳이 없음
+
+	ProcessClose()
+		Close(파괴)하고 싶은 Task를 처리한다.
+		남은 message를 호출한다.
+
+	ProcessTask()
+		messages call
+
+	ProcessSchedule()
+		clear, call and add
+
+loop layers call update()
+
+
+Layer - Task - messages(AsyncCallback)
+
+Layer
+	{Engine.Network.Api.Layer}
+	{Engine.Database.Api.Layer}
+	{Engine.Database.Api.RedisLayer}
+	{Engine.Framework.Layer}
+	{Application.Game.Entities.Room.Layer}
+	{Application.Lobby.Entities.User.Layer}
+	{Application.Synchronize.Entities.Match.Layer}
+	{Application.Match.Entities.Synchronize.Layer}
+	{Application.Match.Entities.Game.Layer}
+
+	Layer는 스레드 수만큼의 ConcurrentQueue<Task>를 갖는다. 
+
+	Layer가 가지고 있는 Task들은 Strand값을 가지고 있고 이값은 어떤 스레드에서 실행 시킬것이냐를 결정한다.
+
+	Task는 messages를 가지고 있고 Parallel.ForEach()에서 Task들이 수행된다.
+
+	스케쥴러는 생성자에 실행 Layer를 넣을수가 있다.
+
+	Delegator와 Singleton Scheduler는 Engine.Framework.Layer에 들어간다.

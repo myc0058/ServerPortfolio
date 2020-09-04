@@ -1,0 +1,41 @@
+﻿<root>
+  <Database Thread="4"/>
+  <MySql Connections="4">
+    <Info Name="Game" Ip="127.0.0.1" Port="3306" Id="root" Pw="1111" Db="modulus" Cript="false"/>
+  </MySql>
+  <!--
+  <MsSql Connections="4">
+    <Info Name="Game" Ip="tcp:127.0.0.1" Port="1433" Id="root" Pw="1111" Db="modulus" Cript="false"/>
+  </MsSql>
+  <Redis Conections="4">
+    <Info Name="Redis" Id="root" Pw="12345678" Db="1" Cript="false">
+      <Master Ip="127.0.0.1" Port="6379"/>
+    </Info>
+  </Redis>
+  -->
+  <Delegate>
+    <Client_Lobby Port="4081"/>
+    
+    <!--GameRoom은 ip를 ','로 구분 여러개 넣을수 있음-->
+    <Lobby_GameRoom Ip="127.0.0.1" Port="3281"/>
+    
+    <Lobby_Synchronize Ip="127.0.0.1" Port="3081"/>
+    <Lobby_Synchronize_User Ip="127.0.0.1" Port="3082"/>
+    
+    <Lobby_Match Ip="127.0.0.1" Port="3181"/>
+    <Lobby_Match_User Ip="127.0.0.1" Port="3182"/>
+    <Lobby_Match_Group Ip="127.0.0.1" Port="3183"/>
+    
+
+    <Game_Synchronize Ip="127.0.0.1" Port="3381"/>
+    <Game_Match Ip="127.0.0.1" Port="3481" />
+    
+    <Match_Synchronize Ip="127.0.0.1" Port="3581"/>
+
+    <Server_AgentClient Ip="127.0.0.1" Port="9880"/>
+    <AgentClient_AgentServer Ip="127.0.0.1" Port="8880"/>
+    <Admin_AgentServer Ip="127.0.0.1" Port="8881"/>
+    <Admin_AgentServerWeb Ip="127.0.0.1" Port="5282"/>
+    
+  </Delegate>
+</root>

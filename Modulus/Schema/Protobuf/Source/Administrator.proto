@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package Schema.Protobuf.Message.Administrator;
+
+message TerminalCommand
+{
+	string Command = 1;
+}
+
+message ConnectedAgentInfo
+{
+	int64 UID = 1;
+	repeated string ServerTypes = 2;
+	int64 Address = 3;
+}
+
+message Exit
+{
+	int64 UID = 1;
+}
+
+message GameServerState
+{
+	int64 GameServerID = 1;
+	int64 LobbyDelegatorID = 2;
+	int32 RunningGameCount = 3;
+}
+
+message SyncTime
+{
+	int64 SendLocalTime = 1;
+	int64 RecvLocalTime = 2;
+	int64 RemoteTime = 101;
+}
+
+message GetUniqueKeySeed
+{
+	int32 Seed = 101;
+}

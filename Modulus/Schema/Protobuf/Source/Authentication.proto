@@ -1,0 +1,27 @@
+syntax = "proto3";
+package Schema.Protobuf.Message.Authentication;
+
+import "Enums.proto";
+
+message Encript
+{
+	string Key = 101;
+	string IV = 102;
+}
+
+message Login {
+
+	string Id = 1;
+	Enums.ClientPlatform ClientPlatform = 2;
+
+	Enums.ResponseCode ResponseCode = 101;
+	int64 Idx = 102;
+
+	
+}
+
+message Logout
+{
+	Enums.ResponseCode ReponseCode = 101;
+	int64 Idx = 102;
+}

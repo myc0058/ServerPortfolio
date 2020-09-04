@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Lobby": {
+      "commandName": "Project",
+      "commandLineArgs": "Lobby Mantisco IBM Alpha"
+    }
+  }
+}
