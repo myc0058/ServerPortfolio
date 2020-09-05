@@ -186,7 +186,7 @@ namespace Engine.Network
                         {
                             callback();
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
 
                         }

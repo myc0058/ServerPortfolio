@@ -12,8 +12,7 @@ namespace Application.Lobby
 
             Application.Lobby.Api.StandAlone = false;
             Schema.Protobuf.Api.StartUp();
-            Basis.Metadata.Api.StartUp(args);
-
+            
             Console.WriteLine($"StartUp Lobby. Version - {Path.GetFileName(Directory.GetCurrentDirectory())}");
 
             Engine.Network.Api.Binder = Schema.Protobuf.Api.Bind;
@@ -30,7 +29,6 @@ namespace Application.Lobby
             while (exit == false)
             {
                 var cmd = Console.ReadLine();
-                //cmd = cmd.ToLower();
                 switch (cmd)
                 {
                     case "exit":

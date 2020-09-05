@@ -106,7 +106,7 @@ namespace Engine.Framework.Apple
                                 }
 
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 // We crashed and burned — do something intelligent
                             }
@@ -211,7 +211,7 @@ namespace Engine.Framework.Apple
 
                 // Success!
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // We crashed and burned — do something intelligent
             }

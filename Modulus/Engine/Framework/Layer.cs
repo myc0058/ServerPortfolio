@@ -448,9 +448,5 @@ namespace Engine.Framework
         internal void Close()
         {
         }
-
-        static int Idendity = 1;
     }
-
-
 }

@@ -11,4 +11,8 @@
     <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

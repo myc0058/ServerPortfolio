@@ -80,7 +80,7 @@ namespace Application.Lobby.Protocol
                             length += (int)ms.Length;
                             ms.CopyTo(stream);
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             Disconnect();
                         }

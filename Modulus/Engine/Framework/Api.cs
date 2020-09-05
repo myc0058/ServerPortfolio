@@ -41,36 +41,31 @@ namespace Engine.Framework
 
         public static long ToByte(this string value)
         {
-            byte parsed = 0;
-            if (byte.TryParse(value, out parsed) == true) { return parsed; }
+            if (byte.TryParse(value, out byte parsed) == true) { return parsed; }
             return 0;
         }
 
         public static long ToSByte(this string value)
         {
-            sbyte parsed = 0;
-            if (sbyte.TryParse(value, out parsed) == true) { return parsed; }
+            if (sbyte.TryParse(value, out sbyte parsed) == true) { return parsed; }
             return 0;
         }
 
         public static short ToInt16(this string value)
         {
-            short parsed = 0;
-            if (short.TryParse(value, out parsed) == true) { return parsed; }
+            if (short.TryParse(value, out short parsed) == true) { return parsed; }
             return 0;
         }
 
         public static ushort ToUInt16(this string value)
         {
-            ushort parsed = 0;
-            if (ushort.TryParse(value, out parsed) == true) { return parsed; }
+            if (ushort.TryParse(value, out ushort parsed) == true) { return parsed; }
             return 0;
         }
 
         public static int ToInt32(this string value)
         {
-            int parsed = 0;
-            if (int.TryParse(value, out parsed) == true) { return parsed; }
+            if (int.TryParse(value, out int parsed) == true) { return parsed; }
             return 0;
         }
 
@@ -80,8 +75,7 @@ namespace Engine.Framework
         }
         public static int ToInt32(this char value)
         {
-            int parsed = 0;
-            if (int.TryParse(new string(value, 1), out parsed) == true) { return parsed; }
+            if (int.TryParse(new string(value, 1), out int parsed) == true) { return parsed; }
             return 0;
         }
         public static short ToInt16(this object value)
@@ -96,6 +90,11 @@ namespace Engine.Framework
 
         public static int Code<T>(this T msg) where T : class
         {
+            if (msg is null)
+            {
+                throw new ArgumentNullException(nameof(msg));
+            }
+
             return Engine.Framework.Id<T>.Value;
         }
 
@@ -220,44 +219,38 @@ namespace Engine.Framework
 
         public static uint ToUInt32(this string value)
         {
-            uint parsed = 0;
-            if (uint.TryParse(value, out parsed) == true) { return parsed; }
+            if (uint.TryParse(value, out uint parsed) == true) { return parsed; }
             return 0;
         }
 
         public static long ToInt64(this string value)
         {
-            long parsed = 0;
-            if (long.TryParse(value, out parsed) == true) { return parsed; }
+            if (long.TryParse(value, out long parsed) == true) { return parsed; }
             return 0;
         }
 
         public static ulong ToUInt64(this string value)
         {
-            ulong parsed = 0;
-            if (ulong.TryParse(value, out parsed) == true) { return parsed; }
+            if (ulong.TryParse(value, out ulong parsed) == true) { return parsed; }
             return 0;
         }
 
 
         public static bool ToBoolean(this string value)
         {
-            bool parsed = true;
-            if (bool.TryParse(value, out parsed) == true) { return parsed; }
+            if (bool.TryParse(value, out bool parsed) == true) { return parsed; }
             return true;
         }
 
         public static float ToFloat(this string value)
         {
-            float parsed = 0;
-            if (float.TryParse(value, out parsed) == true) { return parsed; }
+            if (float.TryParse(value, out float parsed) == true) { return parsed; }
             return 0;
         }
 
         public static double ToDouble(this string value)
         {
-            double parsed = 0;
-            if (double.TryParse(value, out parsed) == true) { return parsed; }
+            if (double.TryParse(value, out double parsed) == true) { return parsed; }
             return 0;
         }
 
@@ -313,7 +306,8 @@ namespace Engine.Framework
         private static int uniqueKey = 1;
 
         static public int ThreadCount { get => threadCount; }
-        static private int threadCount = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0));
+        private static readonly int threadCount = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0));
+
         internal class Nortifier : Engine.Framework.INotifier
         {
             internal static Nortifier Instance = new Nortifier();
@@ -500,8 +494,8 @@ namespace Engine.Framework
             }
 
         }
-        private static List<Engine.Framework.Layer> layers = new List<Layer>();
-        private static List<Engine.Framework.Layer> waitLayers = new List<Layer>();
+        private static readonly List<Engine.Framework.Layer> layers = new List<Layer>();
+        private static readonly List<Engine.Framework.Layer> waitLayers = new List<Layer>();
         public class Watcher
         {
             private FileSystemWatcher watcher;
@@ -860,9 +854,6 @@ namespace Engine.Framework
 
         static internal bool isOpen = false;
 
-        static private HashSet<string> needAssemblies = new HashSet<string>();
-        static private HashSet<string> ignoreAssemblies = new HashSet<string>();
-        static private Dictionary<Type, Tuple<Type, Assembly>> assemblies = new Dictionary<Type, Tuple<Type, Assembly>>();
         static internal Dictionary<string, Api.Watcher> watchers = new Dictionary<string, Api.Watcher>();
 
 
@@ -1449,7 +1440,7 @@ namespace Engine.Framework
                                 OnCallback(path, true);
                                 Console.WriteLine(path + " - Success");
                             }
-                            catch (IOException e)
+                            catch (IOException)
                             {
                                 datas.Enqueue(path);
                             }
@@ -1501,7 +1492,7 @@ namespace Engine.Framework
 
                                 }
                             }
-                            catch (IOException e)
+                            catch (IOException)
                             {
                                 datas.Enqueue(path);
                             }

@@ -24,9 +24,7 @@ namespace Application.Game
         {
             
             Application.Game.Api.StandAlone = false;
-            Basis.Metadata.Api.ServerType = Schema.Protobuf.CSharp.Enums.EServer.Game;
             Schema.Protobuf.Api.StartUp();
-            Basis.Metadata.Api.StartUp(args);
             Engine.Network.Api.Binder = Schema.Protobuf.Api.Bind;
 
             Engine.Framework.Api.Logger.Info($"StartUp Game. Version - {Path.GetFileName(Directory.GetCurrentDirectory())}");
@@ -34,16 +32,8 @@ namespace Application.Game
             Engine.Framework.Api.StartUp();
             Engine.Network.Api.StartUp();
             Engine.Database.Api.StartUp();
-            Engine.Database.Management.Driver.AddSession("DynamoDB", new Engine.Database.Management.Amazon.DynamoDB());
-
 
             Api.StartUp();
-
-
-
-            //Engine.Network.Api.Terminal.Listen(new List<Engine.Network.Protocol.Terminal.Callback>() { Api.Command.OnCommand, Basis.Metadata.Api.OnCommand });
-            //Engine.Network.Api.Terminal.Run(new List<Engine.Network.Protocol.Terminal.Callback>() { Api.Command.OnCommand, Basis.Metadata.Api.OnCommand }).Wait();
-
             
             Engine.Framework.Api.Logger.Info("----------------- Game Server CleanUp -----------------");
      

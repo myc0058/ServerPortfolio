@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Basis.Data
+namespace Application.Common.Data
 {
     public class Account
     {

@@ -13,9 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Basis\Data\Data.csproj" />
-    <ProjectReference Include="..\..\Basis\Metadata\Metadata.csproj" />
     <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

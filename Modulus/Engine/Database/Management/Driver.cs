@@ -36,7 +36,9 @@ namespace Engine.Database.Management
 
             Layer.Task task = null;
             public Query() {
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
                 OverrideQuery = async () => { };
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
                 Strand = Layer.CurrentStrand;
 
                 if (Layer.CurrentTask.Value == null)

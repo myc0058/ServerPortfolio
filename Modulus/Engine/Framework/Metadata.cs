@@ -133,7 +133,7 @@ namespace Engine.Framework
                                 var et = Enum.Parse(field.FieldType, attribute.Value);
                                 field.SetValue(metadata, et);
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 field.SetValue(metadata, 0);
                             }
@@ -157,7 +157,7 @@ namespace Engine.Framework
 								{
 									field.SetValue(metadata, attribute.Value);
 								}
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     field.SetValue(metadata, null);
                                 }
@@ -176,7 +176,7 @@ namespace Engine.Framework
                         {
                             secondaryKey = field.GetValue(metadata);
                         }
-					} catch (Exception ex) {
+					} catch (Exception) {
 						//Debug.LogError(e + " " + field.Name);
 					}
 
@@ -337,7 +337,7 @@ namespace Engine.Framework
                     return;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 try
                 {

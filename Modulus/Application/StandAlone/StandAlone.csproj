@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Agent\Agent.csproj" />
     <ProjectReference Include="..\Game\Game.csproj" />
     <ProjectReference Include="..\Lobby\Lobby.csproj" />
     <ProjectReference Include="..\Match\Match.csproj" />

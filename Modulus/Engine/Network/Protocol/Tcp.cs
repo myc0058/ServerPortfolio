@@ -123,7 +123,7 @@ namespace Engine.Network.Protocol
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Disconnect();
                 Engine.Framework.Api.Logger.Error($"Connect Fail Ip : {this.ip}, Port : {this.port}");
@@ -260,7 +260,7 @@ namespace Engine.Network.Protocol
                             ms.CopyTo(stream);
                             //stream.Write(ms.GetBuffer(), 0, (int)ms.Length);
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             Disconnect();
                         }
@@ -416,7 +416,7 @@ namespace Engine.Network.Protocol
 
                 return;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 state = EState.Closed;
                 try
@@ -459,9 +459,8 @@ namespace Engine.Network.Protocol
 
                 return;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //myc0058
             }
             state = EState.Closed;
             OnConnect(false);
@@ -659,7 +658,7 @@ namespace Engine.Network.Protocol
                 return;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -692,7 +691,7 @@ namespace Engine.Network.Protocol
                     return;
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Disconnect();
                 }

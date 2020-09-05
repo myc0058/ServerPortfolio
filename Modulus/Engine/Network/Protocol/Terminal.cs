@@ -258,7 +258,9 @@ namespace Engine.Network.Protocol
 
             if (OnMessage == null)
             {
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
                 OnMessage = async (notifier, msg) =>
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
                 {
                     if (delegateNotifiers.TryGetValue(msg.UID, out DelegateNotifier @delegate) == true)
                     {

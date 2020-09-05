@@ -17,7 +17,9 @@ namespace Tool.Terminal
         {
             private static bool watchAgents { get; set; } = false;
             static ConcurrentDictionary<string, string> agents = new ConcurrentDictionary<string, string>();
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
             public static async Task<bool> OnMessage(Engine.Framework.INotifier notifer, Engine.Network.Protocol.Terminal.Message msg)
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
             {
 
                 if (msg.Type == Engine.Network.Protocol.Terminal.Message.EType.Complete || msg.Type == Engine.Network.Protocol.Terminal.Message.EType.Error)
@@ -95,7 +97,9 @@ namespace Tool.Terminal
                 return true;
             }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
             public static async Task<bool> OnCommand(Engine.Framework.INotifier notifer, Engine.Network.Protocol.Terminal.Message msg)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
             {
                 if (string.IsNullOrEmpty(msg.Command)) { return true; }
 
@@ -118,35 +122,8 @@ namespace Tool.Terminal
                         Help(notifer, msg);
                         return true;
                     default:
-
-                        if (cmd.StartsWith("agents"))
-                        {
-                            watchAgents = true;
-                            agents.Clear();
-                        }
-                        msg.Address = CurrentAgent;
-                        msg.UID = Engine.Framework.Api.UniqueKey;
-                        Singleton<Engine.Network.Protocol.Terminal>.Instance.Notify(msg);
-                        Engine.Framework.Api.Logger.Info("");
-                        Engine.Network.Api.Terminal.IsCommandable = DateTime.UtcNow.AddSeconds(10);
-
-                        //if (Current == null)
-                        //{
-                        //    Engine.Framework.Api.Logger.Info("CurrentTerminal is null");
-                        //    return true;
-                        //}
-
-                        //if (Current.IsConnected == false)
-                        //{
-                        //    Engine.Framework.Api.Logger.Info("Not Connected");
-                        //    return true;
-                        //}
-
-                        //Engine.Network.Api.Terminal.IsCommand = false;
-                        //Current.Notify(msg);
-                        return true;
+                        return false;
                 }
-                return false;
             }
         }
         

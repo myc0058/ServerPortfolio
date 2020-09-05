@@ -21,35 +21,18 @@ namespace Application.StandAlone
             Application.Lobby.Api.StandAlone = true;
             Application.Match.Api.StandAlone = true;
             Application.Synchronize.Api.StandAlone = true;
-            Application.Agent.Api.StandAlone = true;
-            Application.Agent.Api.IsServer = true;
-            Application.Agent.Api.ServerIp = "127.0.0.1";
-            
 
             Application.Lobby.Api.HeartBeatInterval = 600;
             Schema.Protobuf.Api.StartUp();
 
-
-            Basis.Metadata.Api.ServerType = Schema.Protobuf.CSharp.Enums.EServer.StandAlone;
-            Basis.Metadata.Api.StartUp(args);
-
             Engine.Network.Api.Binder = Schema.Protobuf.Api.Bind;
-
-
-            //System.Threading.ThreadPool.SetMinThreads(8, 8);
-            //System.Threading.ThreadPool.SetMaxThreads(16, 16);
 
             Engine.Network.Api.DelegatorHeartBeat = false;
             Engine.Framework.Api.StartUp();
             Engine.Network.Api.StartUp();
             Engine.Database.Api.StartUp();
             
-            
-            Engine.Database.Management.Driver.AddSession("DynamoDB", new Engine.Database.Management.Amazon.DynamoDB());
-
-
-            Application.Synchronize.Api.StartUp();
-            Application.Agent.Api.StartUp();
+                        Application.Synchronize.Api.StartUp();
             Application.Game.Api.StartUp();
             Application.Lobby.Api.StartUp();
             Application.Match.Api.StartUp();
@@ -69,8 +52,6 @@ namespace Application.StandAlone
             list.Add(Application.Synchronize.Api.Command.OnCommand);
             list.Add(Application.Match.Api.Command.OnCommand);
             list.Add(Command.OnCommand);
-            list.Add(Basis.Metadata.Api.OnCommand);
-            list.Add(Application.Agent.Api.Command.Client.OnCommand);
             Engine.Network.Api.Terminal.Run(list).Wait();
 
             Engine.Database.Api.CleanUp();

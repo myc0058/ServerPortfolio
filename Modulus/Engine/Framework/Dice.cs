@@ -42,11 +42,7 @@ namespace Engine.Framework
             private List<Tuple<T, int>> orignal = new List<Tuple<T, int>>();
             private ThreadLocal<HashSet<Tuple<T, int>>> picked =
                 new ThreadLocal<HashSet<Tuple<T, int>>>(() => { return new HashSet<Tuple<T, int>>(); });
-            //new ThreadLocal<HashSet<Tuple<T, int>>>(() => { new HashSet<Tuple<T, int>>(); });
             private ThreadLocal<SortedDictionary<int, Tuple<T, int>>> candidates = new ThreadLocal<SortedDictionary<int, Tuple<T, int>>>(() => { return new SortedDictionary<int, Tuple<T, int>>(); });
-
-            private ThreadLocal<List<Tuple<T, int>>> candidate;
-
 
             private ThreadLocal<int> MaxPER = new ThreadLocal<int>();
 

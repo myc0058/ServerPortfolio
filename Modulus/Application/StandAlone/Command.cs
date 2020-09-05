@@ -44,8 +44,9 @@ namespace Application.StandAlone
 
 
         }
-
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public static async Task<bool> OnCommand(Engine.Framework.INotifier notifier, Engine.Network.Protocol.Terminal.Message msg)
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             string cmd = msg.Command;
             switch (cmd)

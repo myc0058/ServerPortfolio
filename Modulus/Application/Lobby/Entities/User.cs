@@ -78,7 +78,7 @@ namespace Application.Lobby.Entities
         }
 
         public Protocol.Client Client;
-        public Basis.Data.Account Account = new Basis.Data.Account();
+        public Common. Data.Account Account = new Common.Data.Account();
 
 
         public class MatchingInfo
