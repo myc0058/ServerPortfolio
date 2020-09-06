@@ -73,14 +73,6 @@ namespace Application.Match
 
                         Delegatables.Synchronize.Instance.UID = Api.Idx;
                         Delegatables.Synchronize.Instance.Connect(matchSyncIp, matchSyncPort);
-                        
-                        Delegatables.Agent.Instance.UID = Engine.Framework.Api.UniqueKey;
-                        var info = new Schema.Protobuf.Message.Administrator.ConnectedAgentInfo();
-                        info.ServerTypes.Add("Match");
-                        info.Address = Delegatables.Agent.Instance.UID;
-                        Delegatables.Agent.Instance.ConnectStream = info.ToMemoryStream();
-                        
-                        Delegatables.Agent.Instance.Connect("127.0.0.1", 9880);
                     }
 
 

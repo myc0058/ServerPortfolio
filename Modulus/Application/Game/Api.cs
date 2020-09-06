@@ -80,13 +80,6 @@ namespace Application.Game
 
                     var Lobby_Synchronize = root["Delegate"]["Lobby_Synchronize"];
 
-                    Delegatables.Agent.Instance.UID = Engine.Framework.Api.UniqueKey;
-                    var info = new Schema.Protobuf.Message.Administrator.ConnectedAgentInfo();
-                    info.ServerTypes.Add("Game");
-                    info.Address = Delegatables.Agent.Instance.UID;
-                    Delegatables.Agent.Instance.ConnectStream = info.ToMemoryStream();
-                    Delegatables.Agent.Instance.Connect("127.0.0.1", 9880);
-
                     Singleton<Scheduler.ServerStateSender>.Instance.SendServerState();
                     Singleton<Scheduler.ServerStateSender>.Instance.Run(1000 * 60);
 

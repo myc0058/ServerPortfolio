@@ -94,13 +94,6 @@ namespace Application.Synchronize
 
                 }
 
-                Delegatables.Agent.Instance.UID = Engine.Framework.Api.UniqueKey;
-                var info = new Schema.Protobuf.Message.Administrator.ConnectedAgentInfo();
-                info.ServerTypes.Add(Schema.Protobuf.CSharp.Enums.EServer.Synchronize.ToString());
-                info.Address = Delegatables.Agent.Instance.UID;
-                Delegatables.Agent.Instance.ConnectStream = info.ToMemoryStream();
-                Delegatables.Agent.Instance.Connect("127.0.0.1", 9880);
-
                 Console.WriteLine("---------------- Synchronize Server StartUp ----------------");
 
             }

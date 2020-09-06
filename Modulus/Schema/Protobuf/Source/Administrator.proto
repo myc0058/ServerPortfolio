@@ -7,13 +7,6 @@ message TerminalCommand
 	string Command = 1;
 }
 
-message ConnectedAgentInfo
-{
-	int64 UID = 1;
-	repeated string ServerTypes = 2;
-	int64 Address = 3;
-}
-
 message Exit
 {
 	int64 UID = 1;

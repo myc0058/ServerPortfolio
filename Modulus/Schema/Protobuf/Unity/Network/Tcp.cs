@@ -26,10 +26,9 @@ namespace Schema.Protobuf
         private AsyncConnectCallback onConnect = DefaultOnConnect;
         private AsyncAcceptCallback onAccept = DefaultOnAccept;
         private AsyncDisconnectCallback onDistonnect = DefaultOnDisconncect;
-        public string IP => ip;
-        public ushort Port => port;
-        protected string ip { get; set; }
-        protected ushort port { get; set; }
+        
+        protected string Ip { get; set; }
+        protected ushort Port { get; set; }
         public AsyncReadCallback OnRead
         {
             set { onRead = value; }
@@ -77,8 +76,8 @@ namespace Schema.Protobuf
         
         public bool Connect(string ip, ushort port)
         {
-            this.ip = ip;
-            this.port = port;
+            this.Ip = ip;
+            this.Port = port;
             if (socket != null) return false;
 
             try
@@ -92,7 +91,7 @@ namespace Schema.Protobuf
                 
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Disconnect();
             }
@@ -163,7 +162,7 @@ namespace Schema.Protobuf
                 if (sendBuffer != null) { return true; }
                 try
                 {
-                    flush();
+                    Flush();
                 }
                 catch
                 {
@@ -176,7 +175,7 @@ namespace Schema.Protobuf
             return true;
         }
 
-        protected virtual void flush()
+        protected virtual void Flush()
         {
             if (pendings.Count == 0) { return; }
             if (state != (int)EState.Establish) { return; }
@@ -219,7 +218,7 @@ namespace Schema.Protobuf
                             ms.CopyTo(stream);
                             //stream.Write(ms.GetBuffer(), 0, (int)ms.Length);
                         }
-                        catch(Exception e)
+                        catch(Exception)
                         {
                             Disconnect();
                         }
@@ -292,7 +291,7 @@ namespace Schema.Protobuf
 
                 try
                 {
-                    flush();
+                    Flush();
                 }
                 catch (Exception e)
                 {
@@ -327,7 +326,7 @@ namespace Schema.Protobuf
 
                 try
                 {
-                    flush();
+                    Flush();
                 }
                 catch (Exception e)
                 {
@@ -366,7 +365,7 @@ namespace Schema.Protobuf
                 {
                     state = (int)EState.Establish;
                     OnConnect(true);
-                    if (sendBuffer == null) { flush(); }
+                    if (sendBuffer == null) { Flush(); }
                 }
                 
                 offset = 0;
@@ -374,7 +373,7 @@ namespace Schema.Protobuf
                 
                 return;
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -387,13 +386,11 @@ namespace Schema.Protobuf
         protected virtual void Defragment(MemoryStream transferred)
         {
             var buffer = transferred.GetBuffer();
-
-            int blockSize = 0;
             int readBytes = 0;
 
             while (transferred.Length - readBytes > sizeof(int))
             {
-                blockSize = BitConverter.ToInt32(buffer, readBytes);
+                int blockSize = BitConverter.ToInt32(buffer, readBytes);
                 if (blockSize < 1 || blockSize > RecvBufferSize)
                 {
                     Console.WriteLine($"blockSize < 1 || blockSize > RecvBufferSize, {blockSize} < 1 || {blockSize} > {RecvBufferSize}");
@@ -447,10 +444,9 @@ namespace Schema.Protobuf
 
         private void RecvComplete(IAsyncResult ar)
         {
-            SocketError error;
             try
             {
-                int len = (int)socket.EndReceive(ar, out error);
+                int len = (int)socket.EndReceive(ar, out SocketError error);
                 if (len == 0)
                 {
                     Disconnect();
@@ -473,7 +469,7 @@ namespace Schema.Protobuf
                 return;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -496,13 +492,13 @@ namespace Schema.Protobuf
                     sendBuffer = null;
                     if (pendings.Count > 0)
                     {
-                        flush();
+                        Flush();
                     }
 
                     return;
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Disconnect();
                 }

@@ -18,7 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Engine\Database\Database.csproj" />
     <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
-    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
+    <ProjectReference Include="..\..\Schema\Protobuf\Server\Server.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 

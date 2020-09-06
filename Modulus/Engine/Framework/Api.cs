@@ -1713,36 +1713,13 @@ namespace Engine.Framework
 
             Engine.Framework.Api.Logger.Info("Engine.Framework.Api.StartUp");
 
-            //Engine.Framework.Id<Api.BeginDownload>.Value = 0xFFFF0001;
-            //Engine.Framework.Id<Api.Datablock>.Value = 0xFFFF0002;
-            //Engine.Framework.Id<Api.EndDownload>.Value = 0xFFFF0003;
-            //Engine.Framework.Id<Api.Ok>.Value = 0xFFFF0004;
-
-
             ThreadPool.SetMaxThreads(64, 32);
             ThreadPool.SetMinThreads(32, 16);
 
-            //string path = Directory.GetCurrentDirectory();
-            //path += "/Override/";
-            //Directory.CreateDirectory(path);
-            //Api.Watcher watcher = new OverrideWatcher();
-            //watcher.Path = path;
-            //watcher.Filter = "*.cs";
-            //Api.AddWatcher(watcher);
-
-            //watcher = new OverrideConfigWatcher();
-            //watcher.Path = path;
-            //watcher.Filter = "*.xml";
-            //Api.AddWatcher(watcher);
-
             Engine.Framework.Attributes.Override.StartUp();
 
+            Engine.Framework.Api.Config = new FileStream("./Config.xml", FileMode.Open);
 
-            // set sync context for ui thread so async void exceptions can be handled, keeps process alive
-
-            // ensure unobserved task exceptions (unawaited async methods returning Task or Task<T>) are handled
-
-            // ensure general app exceptions are handled
             AppDomain.CurrentDomain.UnhandledException += App_UnhandledException;
 
             TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;

@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Engine\Network\Network.csproj" />
-    <ProjectReference Include="..\..\Schema\Protobuf\CSharp\CSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

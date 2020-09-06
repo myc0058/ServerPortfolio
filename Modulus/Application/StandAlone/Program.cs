@@ -32,7 +32,7 @@ namespace Application.StandAlone
             Engine.Network.Api.StartUp();
             Engine.Database.Api.StartUp();
             
-                        Application.Synchronize.Api.StartUp();
+            Application.Synchronize.Api.StartUp();
             Application.Game.Api.StartUp();
             Application.Lobby.Api.StartUp();
             Application.Match.Api.StartUp();

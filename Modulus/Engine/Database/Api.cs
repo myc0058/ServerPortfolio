@@ -415,6 +415,7 @@ namespace Engine.Database
                 public IEnumerator<Row> GetEnumerator()
                 {
                     return (IEnumerator<Row>)Rows.GetEnumerator();
+
                 }
                 System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
                 {

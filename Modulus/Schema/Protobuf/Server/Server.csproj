@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>Schema.Protobuf.CSharp</AssemblyName>
-    <RootNamespace>Schema.Protobuf.CSharp</RootNamespace>
+    <AssemblyName>Schema.Protobuf.Server</AssemblyName>
+    <RootNamespace>Schema.Protobuf.Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
