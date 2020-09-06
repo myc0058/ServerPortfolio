@@ -98,9 +98,6 @@ namespace Engine.Database.Management.NoSql
         public string Pw { get; set; }
         public string Db { get; set; }
 
-        //ServiceStack.Redis.PooledRedisClientManager redisManager = null;
-        //public ThreadLocal<ServiceStack.Redis.RedisClient> Connection = new ThreadLocal<ServiceStack.Redis.RedisClient>();
-
         static ConnectionMultiplexer redis = null;
 
 
