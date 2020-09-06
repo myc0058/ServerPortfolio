@@ -11,7 +11,7 @@
 
 * Windows, Linux 호환, .Net Core 3.0
 
-* Multi Thread, 오브젝트(User, Room등등)에 의한 Thread할당 (기준이 되는 Object는 Lock을 걸 필요가 없음)
+* Multi Thread, 오브젝트(User, Room등등)에 의한 Thread할당 (기준이 되는 Object는 Lock을 걸 필요가 없음, 순서가 보장됨)
 
 * 간편한 패킷(Google Protobuf) 추가및 핸들러 추가 
 
